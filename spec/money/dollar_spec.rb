@@ -4,10 +4,8 @@ RSpec.describe Dollar do
   describe "#times" do
     it "金額の掛け算ができること" do
       five = Dollar.new(5)
-      product = five.times(2)
-      expect(product.amount).to eq(10)
-      product = five.times(3)
-      expect(product.amount).to eq(15)
+      expect(five.times(2)).to eq(Dollar.new(10))
+      expect(five.times(3)).to eq(Dollar.new(15))
     end
   end
 
