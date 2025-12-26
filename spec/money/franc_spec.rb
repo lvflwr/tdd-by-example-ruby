@@ -1,3 +1,5 @@
+require "money/franc"
+
 RSpec.describe Franc do
   describe "#times" do
     it "金額の掛け算ができること" do
