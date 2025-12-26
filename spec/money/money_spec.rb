@@ -23,4 +23,11 @@ RSpec.describe Money do
       expect(Money.franc(1).currency).to eq("CHF")
     end
   end
+
+  describe "#plus" do
+    it "金額の加算ができること" do
+      sum = Money.dollar(5).plus(Money.dollar(5))
+      expect(sum).to eq(Money.dollar(10))
+    end
+  end
 end
