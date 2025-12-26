@@ -14,6 +14,10 @@ class Money
     Money.new(@amount * multiplier, @currency)
   end
 
+  def plus(addend)
+    Money.new(@amount + addend.amount, @currency)
+  end
+
   protected
 
   attr_reader :amount
