@@ -3,7 +3,7 @@ require "money/dollar"
 RSpec.describe Dollar do
   describe "#times" do
     it "金額の掛け算ができること" do
-      five = Dollar.new(5)
+      five = Money.dollar(5)
       expect(five.times(2)).to eq(Dollar.new(10))
       expect(five.times(3)).to eq(Dollar.new(15))
     end
