@@ -1,4 +1,6 @@
-class Dollar
+require "money/money"
+
+class Dollar < Money
   def initialize(amount)
     @amount = amount
   end
@@ -6,12 +8,4 @@ class Dollar
   def times(multiplier)
     self.class.new(@amount * multiplier)
   end
-
-  def ==(other)
-    @amount == other.amount
-  end
-
-  protected
-
-  attr_reader :amount
 end
