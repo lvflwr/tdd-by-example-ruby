@@ -15,4 +15,10 @@ RSpec.describe Franc do
       expect(Money.franc(5) == Money.franc(6)).to be false
     end
   end
+
+  describe "#currency" do
+    it "通貨の種類を返すこと" do
+      expect(Money.franc(1).currency).to eq("CHF")
+    end
+  end
 end

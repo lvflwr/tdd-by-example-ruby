@@ -15,4 +15,10 @@ RSpec.describe Dollar do
       expect(Money.dollar(5) == Money.dollar(6)).to be false
     end
   end
+
+  describe "#currency" do
+    it "通貨の種類を返すこと" do
+      expect(Money.dollar(1).currency).to eq("USD")
+    end
+  end
 end
