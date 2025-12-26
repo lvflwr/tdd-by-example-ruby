@@ -6,4 +6,10 @@ class Money
   protected
 
   attr_reader :amount
+
+  class << self
+    def dollar(amount)
+      Dollar.new(amount)
+    end
+  end
 end
