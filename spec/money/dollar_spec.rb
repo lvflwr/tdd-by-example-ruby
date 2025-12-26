@@ -10,4 +10,10 @@ RSpec.describe Dollar do
       expect(product.amount).to eq(15)
     end
   end
+
+  describe "#==" do
+    it "金額の等価性を判定できること" do
+      expect(Dollar.new(5) == Dollar.new(5)).to be true
+    end
+  end
 end
