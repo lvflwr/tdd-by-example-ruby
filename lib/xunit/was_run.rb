@@ -3,10 +3,11 @@ class WasRun
 
   def initialize(name)
     @was_run = nil
+    @name = name
   end
 
   def run
-    test_method
+    send(@name)
   end
 
   def test_method
