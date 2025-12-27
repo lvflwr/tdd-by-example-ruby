@@ -20,6 +20,10 @@ class Money
     Sum.new(self, addend)
   end
 
+  def reduce(to_currency)
+    self
+  end
+
   class << self
     def dollar(amount)
       Money.new(amount, "USD")
