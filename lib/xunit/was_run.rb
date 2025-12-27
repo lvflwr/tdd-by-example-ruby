@@ -11,6 +11,10 @@ class WasRun < TestCase
     @log += "test_method "
   end
 
+  def test_broken_method
+    raise "Intentional Failure"
+  end
+
   def tear_down
     @log += "tear_down "
   end
