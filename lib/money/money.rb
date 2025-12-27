@@ -1,7 +1,7 @@
 require "money/sum"
 
 class Money
-  attr_reader :currency
+  attr_reader :amount, :currency
 
   def initialize(amount, currency)
     @amount = amount
@@ -19,10 +19,6 @@ class Money
   def plus(addend)
     Sum.new(self, addend)
   end
-
-  protected
-
-  attr_reader :amount
 
   class << self
     def dollar(amount)

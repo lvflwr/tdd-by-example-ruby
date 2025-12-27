@@ -1,5 +1,6 @@
 class Bank
   def reduce(source, to_currency)
-    Money.dollar(10)
+    amount = source.augend.amount + source.addend.amount
+    Money.new(amount, to_currency)
   end
 end
