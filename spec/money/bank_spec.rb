@@ -9,5 +9,11 @@ RSpec.describe Bank do
       result = bank.reduce(sum, "USD")
       expect(result).to eq(Money.dollar(7))
     end
+
+    it "お金を換算できること" do
+      bank = Bank.new
+      result = bank.reduce(Money.dollar(1), "USD")
+      expect(result).to eq(Money.dollar(1))
+    end
   end
 end
