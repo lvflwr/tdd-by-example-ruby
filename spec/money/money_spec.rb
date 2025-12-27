@@ -33,5 +33,12 @@ RSpec.describe Money do
       reduced = bank.reduce(sum, "USD")
       expect(reduced).to eq(Money.dollar(10))
     end
+
+    it "Sumオブジェクトを返すこと" do
+      five = Money.dollar(5)
+      sum = five.plus(five)
+      expect(sum.augend).to eq(five)
+      expect(sum.addend).to eq(five)
+    end
   end
 end
