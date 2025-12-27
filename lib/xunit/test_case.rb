@@ -9,11 +9,14 @@ class TestCase
   end
 
   def run
+    result = TestResult.new
+    result.test_started
+
     setup
     send(@name)
     tear_down
 
-    TestResult.new
+    result
   end
 
   def tear_down
