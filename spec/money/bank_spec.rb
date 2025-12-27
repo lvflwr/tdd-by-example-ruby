@@ -22,6 +22,16 @@ RSpec.describe Bank do
       result = bank.reduce(Money.franc(2), "USD")
       expect(result).to eq(Money.dollar(1))
     end
+
+    it "異なる通貨のお金の合計を換算できること" do
+      five_bucks = Money.dollar(5)
+      ten_francs = Money.franc(10)
+      bank = Bank.new
+      bank.add_rate("CHF", "USD", 2)
+      sum = five_bucks.plus(ten_francs)
+      result = bank.reduce(sum, "USD")
+      expect(result).to eq(Money.dollar(10))
+    end
   end
 
   describe "#rate" do
