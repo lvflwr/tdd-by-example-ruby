@@ -23,4 +23,10 @@ RSpec.describe Bank do
       expect(result).to eq(Money.dollar(1))
     end
   end
+
+  describe "#rate" do
+    it "同じ通貨間のレートは1であること" do
+      expect(Bank.new.rate("USD", "USD")).to eq(1)
+    end
+  end
 end
