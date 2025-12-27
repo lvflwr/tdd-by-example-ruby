@@ -1,4 +1,5 @@
 require "money/money"
+require "money/bank"
 
 RSpec.describe Money do
   describe "#times" do
