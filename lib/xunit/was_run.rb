@@ -1,13 +1,11 @@
-class WasRun
+require_relative 'test_case'
+
+class WasRun < TestCase
   attr_reader :was_run
 
   def initialize(name)
     @was_run = nil
-    @name = name
-  end
-
-  def run
-    send(@name)
+    super(name)
   end
 
   def test_method
