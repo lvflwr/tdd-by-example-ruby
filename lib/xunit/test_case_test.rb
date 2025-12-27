@@ -7,6 +7,13 @@ class TestCaseTest < TestCase
     test.run
     raise "Log does not match expected value" unless test.log == "setup test_method tear_down "
   end
+
+  def test_result
+    test = WasRun.new("test_method")
+    result = test.run
+    raise "Result summary does not match expected value" unless result.summary == "1 run, 0 failed"
+  end
 end
 
 TestCaseTest.new("test_template_method").run
+TestCaseTest.new("test_result").run
