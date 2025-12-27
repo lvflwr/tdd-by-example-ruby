@@ -10,4 +10,8 @@ class WasRun < TestCase
   def test_method
     @log += "test_method "
   end
+
+  def tear_down
+    @log += "tear_down "
+  end
 end
