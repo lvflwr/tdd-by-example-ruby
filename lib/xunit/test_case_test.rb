@@ -3,41 +3,40 @@ require_relative 'test_suite'
 require_relative 'was_run'
 
 class TestCaseTest < TestCase
+  def setup
+    @result = TestResult.new
+  end
+
   def test_template_method
     test = WasRun.new("test_method")
-    result = TestResult.new
-    test.run(result)
+    test.run(@result)
     raise "Log does not match expected value" unless test.log == "setup test_method tear_down "
   end
 
   def test_result
     test = WasRun.new("test_method")
-    result = TestResult.new
-    test.run(result)
-    raise "Result summary does not match expected value" unless result.summary == "1 run, 0 failed"
+    test.run(@result)
+    raise "Result summary does not match expected value" unless @result.summary == "1 run, 0 failed"
   end
 
   def test_failed_result
     test = WasRun.new("test_broken_method")
-    result = TestResult.new
-    test.run(result)
-    raise "Result summary does not match expected value" unless result.summary == "1 run, 1 failed"
+    test.run(@result)
+    raise "Result summary does not match expected value" unless @result.summary == "1 run, 1 failed"
   end
 
   def test_failed_result_formatting
-    result = TestResult.new
-    result.test_started
-    result.test_failed
-    raise "Result summary does not match expected value" unless result.summary == "1 run, 1 failed"
+    @result.test_started
+    @result.test_failed
+    raise "Result summary does not match expected value" unless @result.summary == "1 run, 1 failed"
   end
 
   def test_suite
     suite = TestSuite.new
     suite.add(WasRun.new("test_method"))
     suite.add(WasRun.new("test_broken_method"))
-    result = TestResult.new
-    suite.run(result)
-    raise "Result summary does not match expected value" unless result.summary == "2 run, 1 failed"
+    suite.run(@result)
+    raise "Result summary does not match expected value" unless @result.summary == "2 run, 1 failed"
   end
 end
 
