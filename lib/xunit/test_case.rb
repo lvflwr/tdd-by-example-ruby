@@ -8,8 +8,7 @@ class TestCase
   def setup
   end
 
-  def run
-    result = TestResult.new
+  def run(result)
     result.test_started
 
     setup
@@ -21,8 +20,6 @@ class TestCase
     end
 
     tear_down
-
-    result
   end
 
   def tear_down
