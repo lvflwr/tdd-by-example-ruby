@@ -13,7 +13,13 @@ class TestCase
     result.test_started
 
     setup
-    send(@name)
+
+    begin
+      send(@name)
+    rescue
+      result.test_failed
+    end
+
     tear_down
 
     result
